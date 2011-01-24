@@ -13,11 +13,17 @@ import org.codehaus.jackson.map.annotate.JsonSerialize;
  */
 @JsonIgnoreProperties(ignoreUnknown = true)
 public class Tag implements Serializable {
+    /** Constructs a previously submitted tag from persisted data. */
     public Tag(String id, String restaurantId, String title, List<String> itemIds) {
         this.id = id;
         this.restaurantId = restaurantId;
         this.title = title;
         this.itemIds = itemIds;
+    }
+
+    /** Constructs a new tag to be submitted. */
+    public Tag(String title, List<String> itemIds) {
+        this(null, null, title, itemIds);
     }
 
     /** Default constructor for JSON deserialization. */

@@ -14,9 +14,10 @@ import org.codehaus.jackson.map.annotate.JsonSerialize;
  */
 @JsonIgnoreProperties(ignoreUnknown = true)
 public class Item implements Serializable {
+    /** Constructs a previously submitted item from persisted data. */
     public Item(String id, String restaurantId, String title, String description,
-            Integer price, List<com.googlecode.openrest.Variation> variations,
-            com.googlecode.openrest.Availability availability, Boolean inactive) {
+            Integer price, List<Variation> variations, Availability availability,
+            Boolean inactive) {
         this.id = id;
         this.restaurantId = restaurantId;
         this.title = title;
@@ -25,6 +26,12 @@ public class Item implements Serializable {
         this.variations = variations;
         this.availability = availability;
         this.inactive = inactive;
+    }
+
+    /** Constructs a new item to be submitted. */
+    public Item(String title, String description, Integer price, List<Variation> variations,
+            Availability availability, Boolean inactive) {
+        this(null, null, title, description, price, variations, availability, inactive);
     }
 
     /** Default constructor for JSON deserialization. */
