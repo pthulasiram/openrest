@@ -34,8 +34,8 @@ public class Order implements Serializable {
         this.address = address;
         this.contact = contact;
         this.payments = payments;
-        this.created = created.getTime();
-        this.modified = modified.getTime();
+        this.created = ((created != null) ? created.getTime() : null);
+        this.modified = ((modified != null) ? modified.getTime() : null);
         this.user = user;
         this.status = status;
     }

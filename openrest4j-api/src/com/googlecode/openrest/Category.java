@@ -7,6 +7,7 @@ import org.codehaus.jackson.map.annotate.JsonSerialize;
 
 @JsonIgnoreProperties(ignoreUnknown = true)
 public class Category implements Serializable {
+    /** Constructs a previously submitted category from persisted data. */
     public Category(String id, String restaurantId, String title, String description,
             String parentCategoryId, String tagId, Double priority) {
         this.id = id;
@@ -16,6 +17,11 @@ public class Category implements Serializable {
         this.parentCategoryId = parentCategoryId;
         this.tagId = tagId;
         this.priority = priority;
+    }
+
+    /** Constructs a new category to be submitted. */
+    public Category(String title, String description, String parentCategoryId, String tagId, Double priority) {
+        this(null, null, title, description, parentCategoryId, tagId, priority);
     }
 
     /** Default constructor for JSON deserialization. */
