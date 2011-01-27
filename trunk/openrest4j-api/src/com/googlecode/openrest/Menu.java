@@ -9,9 +9,7 @@ import org.codehaus.jackson.map.annotate.JsonSerialize;
 
 @JsonIgnoreProperties(ignoreUnknown = true)
 public class Menu implements Serializable {
-    public Menu(List<com.googlecode.openrest.Item> items,
-            List<com.googlecode.openrest.Tag> tags,
-            List<com.googlecode.openrest.Category> categories) {
+    public Menu(List<Item> items, List<Tag> tags, List<Category> categories) {
         this.items = items;
         this.tags = tags;
         this.categories = categories;
