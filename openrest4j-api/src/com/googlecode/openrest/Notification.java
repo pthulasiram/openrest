@@ -50,7 +50,7 @@ public class Notification implements Serializable {
 
     /**
      * Event duration for triggering a notification, e.g. "after 15 minutes of
-     * not handling an incoming order.
+     * not handling an incoming order".
      */
     @JsonSerialize(include = JsonSerialize.Inclusion.NON_DEFAULT)
     public Integer durationMins = 0;
