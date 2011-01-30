@@ -3,6 +3,7 @@ package com.googlecode.openrest;
 import java.io.Serializable;
 import java.util.Collections;
 import java.util.List;
+import java.util.Map;
 import java.util.TimeZone;
 
 import org.codehaus.jackson.annotate.JsonIgnoreProperties;
@@ -18,7 +19,8 @@ public class Restaurant implements Serializable {
             Integer minOrderPrice, Address address, List<LatLng> deliveryArea,
             String welcomeMessage, String confirmationMessage, ColorScheme colorScheme,
             Availability openTimes, Availability deliveryTimes, Boolean inactive,
-            Boolean deliveryInactive, String timezone, List<String> paymentTypes, String link) {
+            Boolean deliveryInactive, String timezone, List<String> paymentTypes,
+            Map<String, Integer> minPayments, String link) {
         
         this.id = id;
         this.name = name;
@@ -36,6 +38,7 @@ public class Restaurant implements Serializable {
         this.deliveryInactive = deliveryInactive;
         this.timezone = timezone;
         this.paymentTypes = paymentTypes;
+        this.minPayments = minPayments;
         this.link = link;
     }
 
@@ -128,6 +131,14 @@ public class Restaurant implements Serializable {
     /** Available payment methods. */
     @JsonSerialize(include = JsonSerialize.Inclusion.NON_DEFAULT)
     public List<String> paymentTypes = Payment.ALL_PAYMENT_TYPES;
+
+    /**
+     * Maps available payment types to minimal charge allowed per payment, e.g.
+     * "credit cards can only be used for paying $5 or more". Non-referenced
+     * payment types have zero minimum by default.
+     */
+    @JsonSerialize(include = JsonSerialize.Inclusion.NON_DEFAULT)
+    public Map<String, Integer> minPayments = Collections.emptyMap();
 
     /** Official restaurant web-site. */
     @JsonSerialize(include = JsonSerialize.Inclusion.NON_NULL)

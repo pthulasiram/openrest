@@ -53,6 +53,60 @@ public class ColorScheme implements Serializable {
 
     @JsonSerialize(include = JsonSerialize.Inclusion.NON_NULL)
     public String buttonOver;
+
+    @Override
+    public boolean equals(Object obj) {
+        if (obj == null) {
+            return false;
+        }
+        if (getClass() != obj.getClass()) {
+            return false;
+        }
+        final ColorScheme other = (ColorScheme) obj;
+        if ((this.theme == null) ? (other.theme != null) : !this.theme.equals(other.theme)) {
+            return false;
+        }
+        if ((this.background == null) ? (other.background != null) : !this.background.equals(other.background)) {
+            return false;
+        }
+        if ((this.font == null) ? (other.font != null) : !this.font.equals(other.font)) {
+            return false;
+        }
+        if ((this.border == null) ? (other.border != null) : !this.border.equals(other.border)) {
+            return false;
+        }
+        if ((this.imageBackground == null) ? (other.imageBackground != null) : !this.imageBackground.equals(other.imageBackground)) {
+            return false;
+        }
+        if ((this.buttonFont == null) ? (other.buttonFont != null) : !this.buttonFont.equals(other.buttonFont)) {
+            return false;
+        }
+        if ((this.buttonUp == null) ? (other.buttonUp != null) : !this.buttonUp.equals(other.buttonUp)) {
+            return false;
+        }
+        if ((this.buttonDown == null) ? (other.buttonDown != null) : !this.buttonDown.equals(other.buttonDown)) {
+            return false;
+        }
+        if ((this.buttonOver == null) ? (other.buttonOver != null) : !this.buttonOver.equals(other.buttonOver)) {
+            return false;
+        }
+        return true;
+    }
+
+    @Override
+    public int hashCode() {
+        int hash = 5;
+        hash = 37 * hash + (this.theme != null ? this.theme.hashCode() : 0);
+        hash = 37 * hash + (this.background != null ? this.background.hashCode() : 0);
+        hash = 37 * hash + (this.font != null ? this.font.hashCode() : 0);
+        hash = 37 * hash + (this.border != null ? this.border.hashCode() : 0);
+        hash = 37 * hash + (this.imageBackground != null ? this.imageBackground.hashCode() : 0);
+        hash = 37 * hash + (this.buttonFont != null ? this.buttonFont.hashCode() : 0);
+        hash = 37 * hash + (this.buttonUp != null ? this.buttonUp.hashCode() : 0);
+        hash = 37 * hash + (this.buttonDown != null ? this.buttonDown.hashCode() : 0);
+        hash = 37 * hash + (this.buttonOver != null ? this.buttonOver.hashCode() : 0);
+        return hash;
+    }
     
     private static final long serialVersionUID = 1L;
 }
