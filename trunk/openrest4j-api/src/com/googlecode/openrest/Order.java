@@ -23,7 +23,7 @@ public class Order implements Serializable {
 
     /** Constructs a previously submitted order from persisted data. */
     public Order(String id, String restaurantId, List<OrderItem> orderItems, String comment,
-            Integer price, Address address, Contact contact, List<Payment> payments,
+            Integer price, Delivery delivery, Contact contact, List<Payment> payments,
             java.util.Date created, java.util.Date modified, User user, String status) {
 
         this.id = id;
@@ -31,7 +31,7 @@ public class Order implements Serializable {
         this.orderItems = orderItems;
         this.comment = comment;
         this.price = price;
-        this.address = address;
+        this.delivery = delivery;
         this.contact = contact;
         this.payments = payments;
         this.created = ((created != null) ? created.getTime() : null);
@@ -42,8 +42,9 @@ public class Order implements Serializable {
 
     /** Constructs a new order to be submitted. */
     public Order(List<OrderItem> orderItems, String comment, Integer price,
-            Address address, Contact contact, List<Payment> payments) {
-        this(null, null, orderItems, comment, price, address, contact, payments, null, null, null, null);
+            Delivery delivery, Contact contact, List<Payment> payments) {
+        this(null, null, orderItems, comment, price, delivery, contact, payments,
+                null, null, null, null);
     }
 
     /** Default constructor for JSON deserialization. */
@@ -77,9 +78,9 @@ public class Order implements Serializable {
     @JsonSerialize(include = JsonSerialize.Inclusion.NON_DEFAULT)
     public Integer price = 0;
 
-    /* Delivery address. */
+    /* Delivery method. */
     @JsonSerialize(include = JsonSerialize.Inclusion.NON_NULL)
-    public Address address;
+    public Delivery delivery;
 
     /* Contact details. */
     @JsonSerialize(include = JsonSerialize.Inclusion.NON_NULL)
