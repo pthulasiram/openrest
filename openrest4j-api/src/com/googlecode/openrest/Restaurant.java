@@ -19,7 +19,7 @@ public class Restaurant implements Serializable {
             Integer deliveryCharge, Integer minOrderPrice, Address address,
             List<LatLng> deliveryArea, String welcomeMessage, String confirmationMessage,
             ColorScheme colorScheme, Availability openTimes, Availability deliveryTimes,
-            Boolean inactive, Boolean deliveryInactive, String timezone, List<String> paymentTypes,
+            Boolean inactive, List<String> deliveryTypes, String timezone, List<String> paymentTypes,
             Map<String, Integer> minPayments, String link) {
         
         this.id = id;
@@ -36,7 +36,7 @@ public class Restaurant implements Serializable {
         this.openTimes = openTimes;
         this.deliveryTimes = deliveryTimes;
         this.inactive = inactive;
-        this.deliveryInactive = deliveryInactive;
+        this.deliveryTypes = deliveryTypes;
         this.timezone = timezone;
         this.paymentTypes = paymentTypes;
         this.minPayments = minPayments;
@@ -106,9 +106,9 @@ public class Restaurant implements Serializable {
     @JsonSerialize(include = JsonSerialize.Inclusion.NON_DEFAULT)
     public Boolean inactive = Boolean.FALSE;
 
-    /** Whether deliveries are deactivated (i.e. suspended or disabled). */
+    /** Available delivery methods. */
     @JsonSerialize(include = JsonSerialize.Inclusion.NON_DEFAULT)
-    public Boolean deliveryInactive = Boolean.FALSE;
+    public List<String> deliveryTypes = Delivery.ALL_DELIVERY_TYPES;
 
     /** The current status. */
     @JsonSerialize(include = JsonSerialize.Inclusion.NON_NULL)
