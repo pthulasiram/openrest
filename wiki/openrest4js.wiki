@@ -18,7 +18,7 @@ client.request({
    },
    callback : function(response) {
       if (response.error) {
-         alert(response.error);
+         alert(response.error + ": " + response.errorMessage);
          return;
       }
       var restaurant = response.value;
@@ -38,7 +38,7 @@ client.request({
    },
    callback : function(response) {
       if (response.error) {
-         alert(response.error);
+         alert(response.error + ": " + response.errorMessage);
          return;
       }
       var restaurantFullInfo = response.value;
