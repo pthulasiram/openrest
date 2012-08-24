@@ -71,7 +71,7 @@ var order = {
          floor : "2",
          entrance : "main"
       },
-      charge : "200"
+      charge : 200
    },
    orderItems : [{
       itemId : "2018393",
