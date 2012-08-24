@@ -51,8 +51,42 @@ See Java documentation for complete description of the !RestaurantFullInfo objec
 ==Submit order==
 {{{
 var order = {
-
-
+   restaurantId : "daves-taco",
+   locale : "en_US",
+   contact : {
+      firstName : "Barack",
+      lastName : "Obama",
+      email : "barack.obama@mailinator.com",
+      phone : "+12024561111"
+   },
+   delivery : {
+      type : "delivery",
+      address : {
+         country : "United States",
+         city : "Ames",
+         street : "Wood st",
+         number : "2921",
+         apt : "4",
+         floor : "2",
+         entrance : "main"
+      },
+      charge : "200"
+   },
+   orderItems : [{
+      itemId : "2018393",
+      price : 2000
+   }],
+   price : 2200,
+   payments : [{
+      type : "credit",
+      card : {
+         number : "4222222222222",
+         expireMonth : 1,
+         expireYear : 2020,
+         holderName : "Michelle Obama"
+      },
+      amount : 2200
+   }]
 };
 
 client.request({
@@ -62,11 +96,11 @@ client.request({
    },
    callback : function(response) {
       if (response.error) {
-         alert(response.error);
+         alert(response.error + ": " + response.errorMessage);
          return;
       }
-      var submittedOrder = response.value;
-      alert(submittedOrder.id);
+      var orderConfirmation = response.value;
+      alert(orderConfirmation.order.id);
    }
 });
 }}}
