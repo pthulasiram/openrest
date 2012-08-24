@@ -1,4 +1,5 @@
 #summary openrest4js (JavaScript library) code examples.
+#labels Featured
 
 = Openrest !JavaScript library =
 Following are code examples for the openrest !JavaScript library. 
