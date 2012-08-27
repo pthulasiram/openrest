@@ -2,7 +2,8 @@
 #labels Featured
 
 = Openrest Java library =
-Following are code examples for the openrest Java library. 
+
+Following are code examples for the [http://code.google.com/p/openrest/downloads/detail?name=openrest4j-1.1.3.zip openrest Java library].
 
 ==Initialize==
 {{{
