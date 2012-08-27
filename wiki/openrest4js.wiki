@@ -2,7 +2,7 @@
 #labels Featured
 
 = Openrest !JavaScript library =
-Following are code examples for the openrest !JavaScript library. 
+Following are code examples for the [https://code.google.com/p/openrest/downloads/detail?name=openrest4js-client-1.1.1.zip openrest JavaScript library]. 
 
 ==Initialize==
 {{{
