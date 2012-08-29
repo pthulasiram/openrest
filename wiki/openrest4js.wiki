@@ -108,7 +108,7 @@ client.request({
 
 See Java documentation for complete description of the Order object.
 
-==Submit order==
+==Get open orders==
 {{{
 client.request({
    request : {
@@ -130,7 +130,7 @@ client.request({
 });
 }}}
 
-==Submit order==
+==Update order status==
 {{{
 client.request({
    request : {
