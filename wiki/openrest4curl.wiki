@@ -25,3 +25,13 @@ curl -X "POST" -H "Content-Type: application/json" -d "{\"type\":\"submit_order\
 }}}
 
 See Java documentation for complete description of the Order object.
+
+==Get open orders==
+{{{
+curl -X "POST" -H "Content-Type: application/json" -d "{\"type\":\"query_orders\", \"accessToken\":\"XXX\", \"restaurantIds\":[\"daves-taco\"], \"status\":\"new\", \"restaurantView\":true}" "https://api.openrest.com/v1.1"
+}}}
+
+==Update order status==
+{{{
+curl -X "POST" -H "Content-Type: application/json" -d "{\"type\":\"set_order_status\", \"accessToken\":\"XXX\", \"orderId\":\"5551234\", \"status\":\"accepted\"}" "https://api.openrest.com/v1.1"
+}}}
