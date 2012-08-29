@@ -106,5 +106,46 @@ client.request({
 });
 }}}
 
-
 See Java documentation for complete description of the Order object.
+
+==Submit order==
+{{{
+client.request({
+   request : {
+      type : "query_orders",
+      accessToken: "XXX",
+      restaurantIds : ["daves-taco"],
+      status : "new",
+      restaurantView : true
+   },
+   callback : function(response) {
+      if (response.error) {
+         alert(response.error + ": " + response.errorMessage);
+         return;
+      }
+      var ordersResponse = response.value;
+      var orders = ordersResponse.results || [];
+      alert(orders.length);
+   }
+});
+}}}
+
+==Submit order==
+{{{
+client.request({
+   request : {
+      type : "set_order_status",
+      accessToken: "XXX",
+      orderId : "5551234",
+      status : "accepted"
+   },
+   callback : function(response) {
+      if (response.error) {
+         alert(response.error + ": " + response.errorMessage);
+         return;
+      }
+      var order = response.value
+      alert(order.id);
+   }
+});
+}}}
