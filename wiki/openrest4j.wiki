@@ -3,9 +3,7 @@
 
 = Openrest Java library =
 
-Following are code examples for the [http://code.google.com/p/openrest/downloads/detail?name=openrest4j-1.1.5.zip openrest Java library].
-
-For the source code, see [https://github.com/openrest/openrest4j The Openrest SDK for Java on GitHub].
+Following are code examples for the [http://code.google.com/p/openrest/downloads/detail?name=openrest4j-1.1.5.zip openrest Java library]. For source code, see [https://github.com/openrest/openrest4j The Openrest SDK for Java on GitHub].
 
 ==Initialize==
 {{{
